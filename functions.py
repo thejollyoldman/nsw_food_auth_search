@@ -47,14 +47,11 @@ def load_LLM():
 	llm = OpenAI(model_name="gpt-3.5-turbo", temperature = .1)
 	return llm
 
-# gets text from the streamlit app
+# gets text from the streamlit app with a button for mobile users
 import streamlit as st	
 
 def get_text():
-	# input_text = st.text_area(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
-	# return input_text
-	
-	# Using the "with" syntax
+		
 	with st.form(key='my_form'):
 		input_text = st.text_input(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
 		submit_button = st.form_submit_button(label='Go')
