@@ -51,5 +51,5 @@ def load_LLM():
 import streamlit as st	
 
 def get_text():
-	input_text = st.text_area(label="", placeholder="For e.g. 'Is ElJannah Punchbowl safe to eat at?'", key="question")
+	input_text = st.text_area(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
 	return input_text
