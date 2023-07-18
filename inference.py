@@ -93,7 +93,7 @@ with col2:
 	st.image(image="data/Food_Authority.png", width=400)
 
 # text box section
-st.markdown("### Enter restaurant name and question")
+st.markdown("### Enter restaurant name and suburb")
 
 question_input = get_text()
 
