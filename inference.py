@@ -97,8 +97,6 @@ st.markdown("### Enter restaurant name and suburb")
 
 question_input = get_text()
 
-st.button(label = "Go", on_click=run_question(question_input))
-
 st.markdown("### Safety answer")
 
 # answer section
