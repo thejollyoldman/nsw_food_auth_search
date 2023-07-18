@@ -51,5 +51,10 @@ def load_LLM():
 import streamlit as st	
 
 def get_text():
-	input_text = st.text_area(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
-	return input_text
+	# input_text = st.text_area(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
+	# return input_text
+	
+	# Using the "with" syntax
+	with st.form(key='my_form'):
+		input_text = st.text_input(label="", placeholder="For e.g. 'ElJannah Punchbowl'", key="question")
+		submit_button = st.form_submit_button(label='Go')
