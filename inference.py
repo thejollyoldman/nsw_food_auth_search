@@ -99,25 +99,23 @@ question_input = get_text()
 
 st.button(label = "Go", on_click=run_question(question_input))
 
-# answer section
-def run_question(question_input):
-	# assuming there is a question input by user
-	if question_input:
-		
-		# pull out top related embedding string (only top 1 for now). Top strings has been defined in functions.py
-		top_strings = strings_ranked_by_relatedness(query = question_input, df = search_data, top_n = 1, threshold = 0.3)
-	
-		# craft final prompt with context, top_strings[0] retrieves first column of text only, not embedding value
-		prompt_with_context = prompt.format(context = top_strings[0], user_query = question_input)
-		
-		# pass prompt into openAI llm
-		answer = llm(prompt_with_context)
-	
-		# write the context that is found
-		#st.write(top_strings[0])
+st.markdown("### Safety answer")
 
-		st.markdown("### Safety answer")
+# answer section
+if question_input:
 		
-		st.write(answer)
+	# pull out top related embedding string (only top 1 for now). Top strings has been defined in functions.py
+	top_strings = strings_ranked_by_relatedness(query = question_input, df = search_data, top_n = 1, threshold = 0.3)
+
+	# craft final prompt with context, top_strings[0] retrieves first column of text only, not embedding value
+	prompt_with_context = prompt.format(context = top_strings[0], user_query = question_input)
+	
+	# pass prompt into openAI llm
+	answer = llm(prompt_with_context)
+
+	# write the context that is found
+	#st.write(top_strings[0])
+	
+	st.write(answer)
 	
 	
